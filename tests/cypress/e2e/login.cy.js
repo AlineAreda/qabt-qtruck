@@ -1,3 +1,5 @@
+/// <reference types="cypress" />
+
 import loginPage from '../support/pages/Login'
 import mapPage from '../support/pages/Map'
 

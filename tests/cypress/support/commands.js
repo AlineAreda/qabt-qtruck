@@ -23,6 +23,9 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+import loginPage from './pages/Login'
+import mapPage from './pages/Map'
+
 
 Cypress.Commands.add('apiResetUser', (instagram) => {
     cy.request({
@@ -44,7 +47,16 @@ Cypress.Commands.add('apiCreateUser', (payload) => {
         body: payload
     }).then(response => {
         expect(response.status).to.eql(201)
-    })    
+    })
+})
+
+Cypress.Commands.add('uiLogin', (user) => {
+
+    loginPage.go()
+    loginPage.form(user)
+    loginPage.submit()
+
+    mapPage.loggedUser(user.name)
 })
 
 

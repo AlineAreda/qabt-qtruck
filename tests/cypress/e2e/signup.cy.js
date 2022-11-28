@@ -1,3 +1,5 @@
+/// <reference types="cypress" />
+
 import sigupPage from '../support/pages/Signup'
 
 describe('Signup', () => {
@@ -30,9 +32,7 @@ describe('Signup', () => {
             name: 'Caio Martins',
             instagram: '@martins',
             password: 'test3qa'
-        }
-
-        cy.apiResetUser(user.instagram)
+        }        
 
         cy.apiCreateUser(user)
 
